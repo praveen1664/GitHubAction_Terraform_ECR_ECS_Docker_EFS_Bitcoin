@@ -25,7 +25,8 @@ module "sgs" {
 # Module to Create ECS 
 module "ecs" {
   source = "../../modules/ecs"
-  repository_url = "${module.ecr.repository_url}"
+  /* repository_url = "${data.aws_caller_identity.current.account_id}.dkr.ecr.${data.aws_region.current.name}.amazonaws.com/demo_app" */
+  /* "${module.ecr.repository_url}" */
   service_name = var.service_name
   env = var.env
   release_version = var.release_version
@@ -33,7 +34,7 @@ module "ecs" {
   sgs_id_ecs =  "${module.sgs.sgsid_ecs}"
   efs_id    =  "${module.vpc.efs_id}"
   public_subnet = "${module.vpc.public_subnet_ids}"
-depends_on = [module.ecr]
+/* depends_on = [module.ecr] */
 }
 
 

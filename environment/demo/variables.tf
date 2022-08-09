@@ -17,9 +17,9 @@ variable "env" {
 
 variable "ecr_name" {
   type        = string
-  description = "Name of the ECR Repository"
+  description = "Name of the ECR repo"
+  default = "bitcoinecr"
 }
-
 variable "public_subnet_cidr_blocks" {
   type = list(string)
   description = "list of cidr blocks to create public subnet with"
@@ -62,10 +62,3 @@ variable "repository_url" {
 
 }
  
- variable "aws_task_arn" {
-  type = string 
-  description  = "Arn for aws task definition"
-  default = "arn:aws:iam::560668774271:role/ecs_task_execution_role"
-
-}
-

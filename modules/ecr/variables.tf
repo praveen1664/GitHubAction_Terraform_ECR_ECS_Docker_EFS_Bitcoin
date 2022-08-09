@@ -5,6 +5,7 @@ variable "image_tag_mutability" {
 variable "ecr_name" {
   type        = string
   description = "Name of the ECR repo"
+  default = "bitcoinecr"
 }
 
 variable "env" {

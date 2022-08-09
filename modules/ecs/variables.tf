@@ -9,9 +9,10 @@ variable "release_version" {
   default = ""
 }
 
-variable "repository_url" {
+/* variable "repository_url" {
   type = string
-}
+  default="${data.aws_caller_identity.current.account_id}.dkr.ecr.${data.aws_region.current.name}.amazonaws.com/demo_app"
+} */
 
 
 variable "DATABASE_URL" {

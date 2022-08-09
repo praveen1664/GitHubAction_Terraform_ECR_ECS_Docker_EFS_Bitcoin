@@ -1,14 +1,9 @@
-
 # Create cloudformation Log group #
 
 resource "aws_cloudwatch_log_group" "demo" {
   name = "demo"
 }
 
-
-# Getting region details from AWS #
-
-data "aws_region" "current" {}
 
 
 ## ECS Cluster Creation ##
@@ -65,7 +60,7 @@ resource "aws_ecs_task_definition" "app" {
                 }
             }, 
       "name": "bitcoin",
-       "image" : "${var.repository_url}:${var.release_version}"
+       "image" : "${data.aws_caller_identity.current.account_id}.dkr.ecr.${data.aws_region.current.name}.amazonaws.com/demo_app:${var.release_version}"
   }
 ]
 DEFINITION
